@@ -1,0 +1,13 @@
+{% extends '_base.html.twig' %}
+
+{% block pageTitle %}list page{% endblock %}
+
+{% block main %}
+
+<h1>One Detective Books</h1>
+
+<h2>{{ book.title }}</h2>
+<p><strong>total pages</strong> {{ book.numPages }}</p>
+<p><img src="/images/{{ book.image }}"></p>
+
+{% endblock %}
