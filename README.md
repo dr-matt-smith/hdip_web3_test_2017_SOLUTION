@@ -1,5 +1,9 @@
 # hdip_web3_test_2017_SOLUTION
 
+## relates to the public SAMPLE test in this repo:
+
+- https://github.com/dr-matt-smith/hdip_web3_test_SAMPLE_2017
+
 ## suggested SOLUTION & sequence for lab test
 
 See the numbered sequence of README files for the suggested sequence of how to progressively refactor the non-MVC website to a full Twig+Silex, controllers-as-services web application
