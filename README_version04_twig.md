@@ -1,6 +1,10 @@
 
 ## version 4 - twig
 
+1. install the Twig resources via Composer at the command line:
+
+        $ composer require twig/twig
+
 1. change `/public/index.php` to create a `$twig` object and pass to the MainController
 
         <?php

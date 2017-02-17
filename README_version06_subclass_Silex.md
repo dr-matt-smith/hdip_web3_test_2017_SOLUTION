@@ -1,7 +1,12 @@
 
 ## version 6 - make MyApplication a subclass of Silex Application
 
-1. Refactor`/src/WebApplication.php` to be a subclass of Twig\Application
+
+1. install the Twig resources via Composer at the command line:
+
+        $ composer require silex/silex
+
+1. Refactor`/src/WebApplication.php` to be a subclass of Silex\Application
 
     In the constructor we need to setup the controller service provider, and then call the Twig and route setup methods:
 
