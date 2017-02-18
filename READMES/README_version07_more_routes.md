@@ -16,6 +16,8 @@
         </head>
 
         <body>
+        <a href="/">home</a>
+        <hr>
 
         <h1>Welcome - home page of great detectives Book website</h1>
 
@@ -54,10 +56,6 @@
             {
                 parent::__construct();
 
-
-                // setup Service controller provider
-                $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
-
                 $this['debug'] = true;
                 $this->setupTwig();
                 $this->addRoutes();
@@ -68,6 +66,9 @@
 
     public function addRoutes()
     {
+        // setup Service controller provider
+        $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
+
         // map routes to controller class/method
         //-------------------------------------------
 
@@ -87,10 +88,9 @@
 
 1. in class `MainController` copy method `indexAction()` naming the copy `listAction()`, and then refactor `indexAction()` as follows:
 
-
-    public function indexAction()
-    {
-        $argsArray = [];
-        $templateName = 'index';
-        return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
-    }
+        public function indexAction()
+        {
+            $argsArray = [];
+            $templateName = 'index';
+            return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
+        }

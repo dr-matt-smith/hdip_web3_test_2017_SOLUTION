@@ -11,11 +11,6 @@ namespace Itb\Model;
 
 use Mattsmithdev\PdoCrudRepo\DatabaseTableRepository;
 
-/**
- * Class BookRepository
- * class to store and serve Book objects (bit like a memory-only database ...)
- * @package Itb\Model
- */
 class BookRepository extends DatabaseTableRepository
 {
     public function __construct()

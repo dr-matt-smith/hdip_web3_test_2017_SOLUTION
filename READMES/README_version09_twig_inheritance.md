@@ -16,6 +16,8 @@
         </head>
 
         <body>
+        <a href="/">home</a>
+        <hr>
 
         {% block main %}
         {% endblock %}

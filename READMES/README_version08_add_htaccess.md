@@ -1,7 +1,7 @@
 
 ## version 8 - simplify URLs with .htaccess
 
-1. add a .htaccess file inside directory `/public` containing:
+1. add a `.htaccess` file inside directory `/public` containing:
 
         <IfModule mod_rewrite.c>
             RewriteEngine On

@@ -43,7 +43,7 @@
             {
                 // get reference to our repository
                 $bookRepository = new BookRepository();
-                $books = $bookRepository->getAllBooks();
+                $books = $bookRepository->getAll();
 
                 $argsArray = [
                     'books' => $books

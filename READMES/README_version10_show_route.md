@@ -30,13 +30,13 @@
 
         {% endblock %}
 
-1. add a showAction() method to MainController:
+1. add a `showAction()` method to `MainController`:
 
         public function showAction($id)
         {
             // get reference to our repository
             $bookRepository = new BookRepository();
-            $book = $bookRepository->getOneBook($id);
+            $book = $bookRepository->getOneByById($id);
 
             $argsArray = [
                 'book' => $book

@@ -26,7 +26,7 @@
             {
                 // get reference to our repository
                 $bookRepository = new BookRepository();
-                $books = $bookRepository->getAllBooks();
+                $books = $bookRepository->getAll();
 
                 require_once __DIR__  . '/../templates/index.php';
             }

@@ -5,7 +5,15 @@ Remeber you can look up HTTP status codes here:
 
 - http://www.restapitutorial.com/httpstatuscodes.html
 
-1. create a 404 error Twig template, /templates/error404.html.twig
+
+Two handy codes useful for meaninful aborts are:
+
+- 400 - bad request
+- 404 - resource not found
+
+<hr>
+
+1. create a 404 error Twig template, `/templates/error404.html.twig`
 
         {% extends '_base.html.twig' %}
 
@@ -23,7 +31,7 @@ Remeber you can look up HTTP status codes here:
 
         {% endblock %}
 
-1. create a general error Twig template, /templates/error.html.twig
+1. create a general error Twig template, `/templates/error.html.twig`
 
         {% extends '_base.html.twig' %}
 
@@ -40,7 +48,7 @@ Remeber you can look up HTTP status codes here:
         {% endblock %}
 
 
-1. add a new class /src/controllers/ErrorController:
+1. add a new class `/src/controllers/ErrorController`:
 
         <?php
         namespace Itb\Controller;
@@ -82,7 +90,7 @@ Remeber you can look up HTTP status codes here:
 
 
 
-1. add an error handling method to class WebApplication, handleErrorsAndExceptions():
+1. add an error handling method to class `WebApplication`, `handleErrorsAndExceptions()`:
 
 
         public function handleErrorsAndExceptions()
@@ -96,15 +104,11 @@ Remeber you can look up HTTP status codes here:
             });
         }
 
-1. When WebApplication is constructed, call the new method to handle errors
+1. When `WebApplication` is constructed, call the new method to handle errors
 
         public function __construct()
         {
             parent::__construct();
-
-
-            // setup Service controller provider
-            $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
 
             $this['debug'] = true;
             $this->setupTwig();
@@ -115,7 +119,7 @@ Remeber you can look up HTTP status codes here:
 
 1. We can now 'abort' the processing of a request if, for example, something was requested but not found (e.g. no book for an ID)
 
-    E.g. MainController->showAction($id) when no book found for the ID:
+    E.g. `MainController->showAction($id)` when no book found for the ID:
 
         public function showAction($id)
         {
@@ -125,6 +129,7 @@ Remeber you can look up HTTP status codes here:
 
             if(null == $book){
                 $errorMessage = 'no book found with id = ' . $id;
+                // 404 - resource not found
                 $this->app->abort(404, $errorMessage);
             }
 
@@ -135,7 +140,7 @@ Remeber you can look up HTTP status codes here:
             return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
         }
 
-    E.g. MainController->showNoIdAction() when no Id provided:
+    E.g. `MainController->showNoIdAction()` when no Id provided:
 
         public function showNoIdAction()
         {

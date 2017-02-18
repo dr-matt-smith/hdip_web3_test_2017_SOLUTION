@@ -26,10 +26,6 @@
             {
                 parent::__construct();
 
-
-                // setup Service controller provider
-                $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
-
                 $this['debug'] = true;
                 $this->setupTwig();
                 $this->addRoutes();
@@ -51,6 +47,9 @@
 
         public function addRoutes()
         {
+            // setup Service controller provider
+            $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
+
             // map routes to controller class/method
             //-------------------------------------------
 
@@ -86,7 +85,7 @@
             {
                 // get reference to our repository
                 $bookRepository = new BookRepository();
-                $books = $bookRepository->getAllBooks();
+                $books = $bookRepository->getAll();
 
                 $argsArray = [
                     'books' => $books

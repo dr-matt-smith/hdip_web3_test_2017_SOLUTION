@@ -17,10 +17,6 @@ class WebApplication extends Application
     {
         parent::__construct();
 
-
-        // setup Service controller provider
-        $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
-
         $this['debug'] = true;
         $this->setupTwig();
         $this->addRoutes();
@@ -41,6 +37,9 @@ class WebApplication extends Application
 
     public function addRoutes()
     {
+        // setup Service controller provider
+        $this->register(new \Silex\Provider\ServiceControllerServiceProvider());
+
         // map routes to controller class/method
         //-------------------------------------------
 
