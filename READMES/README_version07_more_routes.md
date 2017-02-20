@@ -36,31 +36,6 @@
         </html>
 
 
-1. Refactor`/src/WebApplication.php` to be a subclass of Twig\Application
-
-    In the constructor we need to setup the controller service provider, and then call the Twig and route setup methods:
-
-
-        <?php
-        namespace Itb;
-
-
-        use Silex\Application;
-
-        class WebApplication extends Application
-        {
-            private $myTemplatesPath = __DIR__ . '/../templates';
-
-
-            public function __construct()
-            {
-                parent::__construct();
-
-                $this['debug'] = true;
-                $this->setupTwig();
-                $this->addRoutes();
-            }
-
 1. Add a `/list` route to `/src/WebApplication.php`, to call `MainController->listAction()`:
 
 
